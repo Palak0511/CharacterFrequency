@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>characterFrequency</title>
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+    }
+
+    #container {
+      height: 100vh;
+      width: 100vw;
+      background-color: rgb(123, 124, 220);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      color: rgb(53, 7, 138);
+      font-family: "Playfair Display", serif;
+    }
+
+    textarea {
+      background-color: #CEED72;
+      border: 0;
+      outline: 0;
+      font: 1.5em monospace;
+      height: 200px;
+      margin: 1em;
+      user-select: none;
+      resize: horizontal;
+      padding: 2em;
+      margin: 1em;
+    }
+
+    textarea:hover {
+      background-color: white;
+    }
+
+    #get {
+      background-color: #CEED72;
+      color: black;
+      border: 0;
+      outline: 0;
+      font: 1.5em monospace;
+      
+    }
+
+    #get:hover {
+      background-color: white;
+    }
+
+    #put {
+      background-color: #CEED72;
+      border: 0;
+      outline: 0;
+      font: 1.5em monospace;
+      color: black;
+      user-select: none;
+      width: 20px;
+      padding: 0.1em;
+    }
+
+    #put:hover {
+      background-color: white;
+    }
+  </style>
+  <body>
+    <section id="container">
+      <section id="container">
+        <h4
+          style="color: rgb(53, 7, 138); font-family: 'Playfair Display', serif;
+            monospace; font-size: 4em;"
+        >
+          CHARACTER FREQUENCY
+        </h4>
+        <textarea placeholder="Enter text..." oninput="{change()}"></textarea>
+        <section>
+          <h1
+            style="
+              display: inline-block;
+              color: rgb(53, 7, 138);
+              font-family: 'Playfair Display', serif;
+              margin: 2em;
+            "
+          >
+            Type Character :
+          </h1>
+          <input id="put" maxlength="1" oninput="{change()}" />
+        </section>
+        <section>
+          Frequency of given Character : <input id="get" disabled value="0" />
+        </section>
+      </section>
+    </section>
+  </body>
+  <script>
+    "use strict";
+
+    function change() {
+      let txtbx = document.querySelector("textarea"),
+        inptput = document.querySelector("#put"),
+        inptget = document.querySelector("#get"),
+        sum = 0;
+
+      for (let i of txtbx.value) inptput.value === i ? (sum += 1) : (sum += 0);
+
+      return (inptget.value = sum);
+    }
+  </script>
+</html>
